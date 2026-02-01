@@ -36,15 +36,15 @@ app.get("/:word/echo", function (req, res) {
 });
 
 app.get("/name", function (req, res) {
-  const firstName = req.query.first;
-  const lastName = req.query.last;
-  res.json({ name: firstName + " " + lastName });
+  const first = req.query.first;
+  const last = req.query.last;
+  res.json({ name: first + " " + last });
 });
 
 app.post("/name", function (req, res) {
-  const firstName = req.body.first;
-  const lastName = req.body.last;
-  res.json({ name: firstName + " " + lastName });
+  const first = req.body.first;
+  const last = req.body.last;
+  res.json({ name: first + " " + last });
 });
 
 module.exports = app;
