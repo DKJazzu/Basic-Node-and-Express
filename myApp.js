@@ -1,8 +1,9 @@
 let express = require('express');
 let app = express();
+let bodyParser = require('body-parser');
 require('dotenv').config();
 
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(function (req, res, next) {
@@ -41,7 +42,7 @@ app.get("/name", function (req, res) {
   res.json({ name: first + " " + last });
 });
 
-app.post("/name", function(req, res) {
+app.post("/name", function (req, res) {
   let string = req.body.first + " " + req.body.last;
   res.json({ name: string });
 });
