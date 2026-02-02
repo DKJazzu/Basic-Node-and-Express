@@ -36,15 +36,16 @@ app.get("/:word/echo", function (req, res) {
   res.json({ echo: req.params.word });
 });
 
-app.get("/name", function (req, res) {
-  const first = req.query.first;
-  const last = req.query.last;
-  res.json({ name: first + " " + last });
-});
-
-app.post("/name", function (req, res) {
-  let string = req.body.first + " " + req.body.last;
-  res.json({ name: string });
-});
+app.route("/name")
+  .get(function (req, res) {
+    const first = req.query.first;
+    const last = req.query.last;
+    res.json({ name: first + " " + last });
+  })
+  .post(function (req, res) {
+    const first = req.body.first;
+    const last = req.body.last;
+    res.json({ name: first + " " + last });
+  });
 
 module.exports = app;
